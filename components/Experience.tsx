@@ -64,12 +64,12 @@ export default function Experience() {
 
   return (
     <>
-      <section className="block" id="prov" aria-labelledby="prov-h">
-        <div className="wrap" ref={quizTop} style={{ scrollMarginTop: 16 }}>
-          <p className="eyebrow">Gratis prøve · 10 spørsmål · ca. 4 minutter</p>
-          <h2 id="prov-h">Hvor klar er du?</h2>
-          <p className="sub">
-            Kjøre- og hviletid, løyve og HMS-kort. Du ser svaret og forklaringen etter hvert spørsmål.
+      <section className="section section-mist" id="prov" aria-labelledby="prov-h">
+        <div className="narrow" ref={quizTop} style={{ scrollMarginTop: 16 }}>
+          <h2 className="section-title" id="prov-h">Hvor klar er du?</h2>
+          <p className="section-sub">
+            Gratis prøve med 10 spørsmål om kjøre- og hviletid, løyve og HMS-kort. Du ser svaret og forklaringen etter
+            hvert spørsmål.
           </p>
 
           <div className="quiz">
@@ -124,7 +124,7 @@ export default function Experience() {
 
                 {answered && (
                   <div className="qnext">
-                    <button ref={nextBtn} type="button" className="cta" onClick={next}>
+                    <button ref={nextBtn} type="button" className="btn" onClick={next}>
                       {i < questions.length - 1 ? "Neste spørsmål →" : "Se resultatet →"}
                     </button>
                   </div>
@@ -132,9 +132,7 @@ export default function Experience() {
               </div>
             ) : (
               <div className="result" role="status">
-                <p className="eyebrow" style={{ margin: 0 }}>
-                  Ditt resultat
-                </p>
+                <p className="result-label">Ditt resultat</p>
                 <p className="score">
                   {score}
                   <small>/{questions.length}</small>
@@ -144,11 +142,11 @@ export default function Experience() {
                   Full øvingsbank med 35-spørsmålsprøver i samme format som eksamen, og en egen modul om kjøre- og
                   hviletid for varebil, kommer snart. Skriv deg på listen under for tidlig tilgang.
                 </p>
-                <a className="cta" href="#venteliste">
-                  Få tidlig tilgang ↓
+                <a className="btn" href="#venteliste">
+                  Få tidlig tilgang
                 </a>
                 <div>
-                  <button type="button" className="ghost" onClick={restart}>
+                  <button type="button" className="link-btn" onClick={restart}>
                     Ta prøven på nytt
                   </button>
                 </div>
@@ -227,8 +225,8 @@ function Waitlist({ score }: { score: number | null }) {
   }
 
   return (
-    <section className="block" id="venteliste" aria-labelledby="wl-h">
-      <div className="wrap">
+    <section className="section section-sand" id="venteliste" aria-labelledby="wl-h">
+      <div className="narrow">
         <div className="wl">
           {state === "done" ? (
             <div className="done" role="status">
@@ -237,9 +235,6 @@ function Waitlist({ score }: { score: number | null }) {
             </div>
           ) : (
             <form onSubmit={submit} noValidate>
-              <p className="eyebrow" style={{ color: "#9aa3a9" }}>
-                Venteliste
-              </p>
               <h2 id="wl-h">Få tidlig tilgang og lanseringspris</h2>
               <p className="sub">Én e-post når det er klart. Ingen spam, og du kan melde deg av når som helst.</p>
 
@@ -318,7 +313,7 @@ function Waitlist({ score }: { score: number | null }) {
                 </span>
               </label>
 
-              <button className="cta" type="submit" disabled={state === "sending"}>
+              <button className="btn" type="submit" disabled={state === "sending"}>
                 {state === "sending" ? "Sender …" : "Sett meg på listen"}
               </button>
               {err && (

@@ -6,10 +6,16 @@ const CONTACT = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "kontakt@varebilklar.no
 
 export default function Personvern() {
   return (
-    <main className="wrap prose" style={{ paddingBottom: 48 }}>
-      <p style={{ marginTop: 24 }}>
-        <a href="/">← Tilbake</a>
-      </p>
+    <>
+    <header className="site">
+      <div className="wrap site-inner">
+        <a className="brand" href="/">Varebilklar</a>
+        <nav className="nav" aria-label="Hovedmeny">
+          <a className="nav-cta" href="/">Til forsiden</a>
+        </nav>
+      </div>
+    </header>
+    <main className="narrow prose">
       <h1>Personvernerklæring</h1>
       <p>Sist oppdatert: 7. oktober 2026</p>
 
@@ -47,5 +53,6 @@ export default function Personvern() {
         <a href={`mailto:${CONTACT}`}>{CONTACT}</a>. Du kan klage til Datatilsynet.
       </p>
     </main>
+    </>
   );
 }

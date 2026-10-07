@@ -28,20 +28,33 @@ export default function Countdown() {
   }, []);
 
   return (
-    <div className="tacho" role="timer" aria-label="Tid igjen til 1. april 2027">
-      <span className="tacho-label">Fartsskriver-krav for varebil om</span>
-      <span className="tacho-digits">
-        {p ? (
-          <>
-            {p.d}
-            <small>d</small> {pad(p.h)}:{pad(p.m)}
-          </>
-        ) : (
-          <>
-            ---<small>d</small> --:--
-          </>
-        )}
-      </span>
+    <div className="device" role="timer" aria-label="Tid igjen til 1. april 2027">
+      <div className="device-top">
+        <span>Fartsskriver</span>
+        <span>Varebil 2,5–3,5 t</span>
+      </div>
+      <div className="device-screen">
+        <span className="tacho-label">Krav gjelder om</span>
+        <span className="tacho-digits">
+          {p ? (
+            <>
+              {p.d}
+              <small>d</small> {pad(p.h)}:{pad(p.m)}
+            </>
+          ) : (
+            <>
+              ---<small>d</small> --:--
+            </>
+          )}
+        </span>
+      </div>
+      <div className="device-keys" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+        <i />
+      </div>
+      <p className="device-foot">Fra 1. april 2027 · nasjonal godstransport</p>
     </div>
   );
 }

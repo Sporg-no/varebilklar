@@ -14,7 +14,7 @@ export default function OG() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#16191c",
+          background: "#444f55",
           color: "#fff",
           padding: "64px 72px",
           borderBottom: "18px solid #ffc20e",
@@ -47,10 +47,10 @@ export default function OG() {
           </div>
         </div>
         <div style={{ display: "flex", gap: 22, fontSize: 30 }}>
-          <div style={{ display: "flex", background: "#0b0d0e", border: "2px solid #353b41", borderRadius: 10, padding: "10px 20px", color: "#b8f26b" }}>
+          <div style={{ display: "flex", background: "#2b3439", border: "2px solid #5a666c", borderRadius: 10, padding: "10px 20px", color: "#b8f26b" }}>
             74 % strøk på løyveeksamen
           </div>
-          <div style={{ display: "flex", background: "#0b0d0e", border: "2px solid #353b41", borderRadius: 10, padding: "10px 20px", color: "#b8f26b" }}>
+          <div style={{ display: "flex", background: "#2b3439", border: "2px solid #5a666c", borderRadius: 10, padding: "10px 20px", color: "#b8f26b" }}>
             30 av 35 for å bestå
           </div>
         </div>
