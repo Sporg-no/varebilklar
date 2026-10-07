@@ -21,7 +21,7 @@ export default function Personvern() {
 
       <h2>Behandlingsansvarlig</h2>
       <p>
-        Erlend Namsvatn ENK, org.nr. 914 829 216, Kvernbakken 175, 4355 Kverneland. Kontakt:{" "}
+        Namsvatn Markonsult, org.nr. 914 829 216, Kvernbakken 175, 4355 Kverneland. Kontakt:{" "}
         <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
       </p>
 

@@ -180,7 +180,7 @@ export default function Home() {
           </div>
           <div>
             <h3>Kontakt</h3>
-            <p>Erlend Namsvatn ENK · Org.nr. 914 829 216</p>
+            <p>Namsvatn Markonsult · Org.nr. 914 829 216</p>
             <p>
               <a href={`mailto:${CONTACT}`}>{CONTACT}</a>
             </p>
