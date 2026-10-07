@@ -138,7 +138,8 @@ export default function Home() {
               <summary>Hvem må ta løyveeksamen?</summary>
               <p>
                 Transportlederen i en virksomhet som skal ha nasjonalt varebilløyve. Eksamen tas på trafikkstasjon og har
-                35 flervalgsoppgaver. Du må ha minst 30 riktige.
+                35 flervalgsoppgaver. Du må ha minst 30 riktige. Les mer om{" "}
+                <a href="/loyveeksamen-varebil">løyveeksamen for varebil</a>.
               </p>
             </details>
             <details>

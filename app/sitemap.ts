@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE}/hviletidskalkulator`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE}/kjore-og-hviletid-varebil`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE}/fartsskriver-varebil`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE}/loyveeksamen-varebil`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE}/personvern`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
   ];
 }

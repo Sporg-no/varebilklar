@@ -128,6 +128,7 @@ export default function Page() {
               kontrollørene bruker. Hver sjåfør trenger et eget sjåførkort, som søkes hos Statens vegvesen.
             </p>
             <p>
+              Les mer om sjåførkort, bedriftskort og nedlasting i <a href="/fartsskriver-varebil">fartsskriver i varebil</a>.
               Fartsskriveren må monteres av et godkjent fartsskriververksted. Regjeringen utsatte kravet for nasjonal
               transport med ni måneder nettopp for å gi tid til anskaffelse og montering, så bestill time i god tid før
               1. april.

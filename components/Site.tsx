@@ -53,7 +53,8 @@ export function SiteFooter() {
           </p>
           <p>
             <a href="/hviletidskalkulator">Hviletidskalkulator</a> ·{" "}
-            <a href="/kjore-og-hviletid-varebil">Kjøre- og hviletid for varebil</a>
+            <a href="/kjore-og-hviletid-varebil">Kjøre- og hviletid</a> ·{" "}
+            <a href="/fartsskriver-varebil">Fartsskriver</a> · <a href="/loyveeksamen-varebil">Løyveeksamen</a>
           </p>
         </div>
         <div>
