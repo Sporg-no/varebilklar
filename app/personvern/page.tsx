@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
+import { SiteFooter, SiteHeader } from "@/components/Site";
 
-export const metadata: Metadata = { title: "Personvern – Varebilklar" };
+export const metadata: Metadata = { title: "Personvern – Varebilklar", alternates: { canonical: "/personvern" } };
 
 const CONTACT = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "kontakt@varebilklar.no";
 
 export default function Personvern() {
   return (
     <>
-    <header className="site">
-      <div className="wrap site-inner">
-        <a className="brand" href="/">Varebilklar</a>
-        <nav className="nav" aria-label="Hovedmeny">
-          <a className="nav-cta" href="/">Til forsiden</a>
-        </nav>
-      </div>
-    </header>
+    <SiteHeader />
     <main className="narrow prose">
       <h1>Personvernerklæring</h1>
       <p>Sist oppdatert: 7. oktober 2026</p>
@@ -53,6 +47,7 @@ export default function Personvern() {
         <a href={`mailto:${CONTACT}`}>{CONTACT}</a>. Du kan klage til Datatilsynet.
       </p>
     </main>
+    <SiteFooter />
     </>
   );
 }
