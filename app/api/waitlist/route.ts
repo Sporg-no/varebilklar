@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 
   const antallRaw = Number(body.antall_biler);
   const antall_biler =
-    Number.isFinite(antallRaw) && antallRaw >= 0 && antallRaw <= 10000 ? Math.round(antallRaw) : null;
+    body.antall_biler !== null && Number.isFinite(antallRaw) && antallRaw >= 0 && antallRaw <= 10000 ? Math.round(antallRaw) : null;
 
   const interesse = Array.isArray(body.interesse)
     ? body.interesse.filter((i): i is string => typeof i === "string" && INTERESSER.has(i))
