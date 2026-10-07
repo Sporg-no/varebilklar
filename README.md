@@ -5,7 +5,7 @@ Next.js 16 (App Router) + Supabase. Gratis prøve med 10 spørsmål, venteliste,
 ## Struktur
 - `lib/questions.ts` – de 10 spørsmålene (svar, forklaring, kilde)
 - `components/Experience.tsx` – quiz + venteliste (klient)
-- `app/api/waitlist` – lagrer påmelding (service role, kun server)
+- `app/api/waitlist` – lagrer påmelding via RPC `join_waitlist`
 - `app/api/quiz` – lagrer anonym poengsum + feil spørsmål
 - `app/opengraph-image.tsx` – forhåndsvisningsbilde i Facebook
 - `supabase/schema.sql` – tabeller + RLS
@@ -14,7 +14,7 @@ Next.js 16 (App Router) + Supabase. Gratis prøve med 10 spørsmål, venteliste,
 1. Supabase: nytt prosjekt, region **EU (Frankfurt eller Stockholm)**. SQL Editor → kjør `supabase/schema.sql`.
 2. GitHub: nytt privat repo, push denne mappen.
 3. Vercel: Import repo. Environment Variables:
-   - `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (Project Settings → API)
+   - `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` (Project Settings → API)
    - `NEXT_PUBLIC_SITE_URL` = https://varebilklar.no
    - `NEXT_PUBLIC_CONTACT_EMAIL` = adressen du faktisk leser
 4. Domene: kjøp varebilklar.no (Domeneshop e.l.), legg til i Vercel → Domains.

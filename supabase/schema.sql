@@ -21,9 +21,38 @@ create table if not exists public.quiz_runs (
   src        text
 );
 
--- RLS på, ingen policies: kun service role (server-ruten) kan lese/skrive.
+-- RLS på, ingen policies: anon/publishable-nøkkelen kan verken lese eller skrive tabellene direkte.
 alter table public.waitlist  enable row level security;
 alter table public.quiz_runs enable row level security;
+
+-- Eneste inngang for nettsiden: to SECURITY DEFINER-funksjoner.
+create or replace function public.join_waitlist(
+  p_email text, p_rolle text, p_antall_biler int, p_interesse text[],
+  p_quiz_score smallint, p_src text, p_samtykke boolean
+) returns void language plpgsql security definer set search_path = '' as $$
+begin
+  if p_samtykke is not true then raise exception 'samtykke mangler'; end if;
+  insert into public.waitlist (email, rolle, antall_biler, interesse, quiz_score, src, samtykke)
+  values (lower(trim(p_email)), p_rolle, p_antall_biler,
+    coalesce((select array_agg(i) from unnest(p_interesse) i
+              where i in ('loyveeksamen','kjore_hviletid','kalkulator','firmalisens')), '{}'),
+    p_quiz_score, left(p_src, 40), true)
+  on conflict (email) do nothing;
+end; $$;
+
+create or replace function public.log_quiz_run(p_score smallint, p_wrong_ids text[], p_src text)
+returns void language plpgsql security definer set search_path = '' as $$
+begin
+  insert into public.quiz_runs (score, wrong_ids, src)
+  values (p_score,
+    coalesce((select array_agg(i) from unnest(p_wrong_ids) i where i ~ '^q([1-9]|10)$'), '{}'),
+    left(p_src, 40));
+end; $$;
+
+revoke all on function public.join_waitlist(text,text,int,text[],smallint,text,boolean) from public, authenticated;
+revoke all on function public.log_quiz_run(smallint,text[],text) from public, authenticated;
+grant execute on function public.join_waitlist(text,text,int,text[],smallint,text,boolean) to anon;
+grant execute on function public.log_quiz_run(smallint,text[],text) to anon;
 
 -- Nyttige spørringer
 -- select src, count(*) from waitlist group by src order by 2 desc;

@@ -52,18 +52,18 @@ export async function POST(req: Request) {
     );
   }
 
-  const { error } = await sb.from("waitlist").insert({
-    email,
-    rolle,
-    antall_biler,
-    interesse,
-    quiz_score,
-    src: cleanSrc(body.src),
-    samtykke,
+  // Duplikat-e-post ignoreres i databasen (on conflict do nothing), så svaret er likt.
+  const { error } = await sb.rpc("join_waitlist", {
+    p_email: email,
+    p_rolle: rolle,
+    p_antall_biler: antall_biler,
+    p_interesse: interesse,
+    p_quiz_score: quiz_score,
+    p_src: cleanSrc(body.src),
+    p_samtykke: samtykke,
   });
 
-  // 23505 = allerede påmeldt. Svar likt som ny påmelding.
-  if (error && error.code !== "23505") {
+  if (error) {
     console.error("waitlist insert", error);
     return NextResponse.json({ ok: false, error: "Noe gikk galt. Prøv igjen." }, { status: 500 });
   }

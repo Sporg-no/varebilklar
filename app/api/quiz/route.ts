@@ -23,7 +23,11 @@ export async function POST(req: Request) {
   const sb = serverSupabase();
   if (!sb) return NextResponse.json({ ok: true, stored: false });
 
-  const { error } = await sb.from("quiz_runs").insert({ score, wrong_ids, src: cleanSrc(body.src) });
+  const { error } = await sb.rpc("log_quiz_run", {
+    p_score: score,
+    p_wrong_ids: wrong_ids,
+    p_src: cleanSrc(body.src),
+  });
   if (error) console.error("quiz insert", error);
   return NextResponse.json({ ok: true });
 }
